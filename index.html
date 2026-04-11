@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Servicio</title>
+  <link rel="stylesheet" href="index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-brand">
+      <span class="brand-icon">◆</span>
+      <span class="brand-name">MiServicio</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#" class="nav-link active" data-page="inicio">Inicio</a>
+      <a href="#" class="nav-link" data-page="nosotros">Nosotros</a>
+      <div class="nav-dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-page="alojamiento">Alojamiento ▾</a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item" data-page="salamanca">Salamanca</a>
+          <a href="#" class="dropdown-item" data-page="chapultepec">Chapultepec</a>
+        </div>
+      </div>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" class="mobile-link" data-page="inicio">Inicio</a>
+    <a href="#" class="mobile-link" data-page="nosotros">Nosotros</a>
+    <a href="#" class="mobile-link" data-page="alojamiento">Alojamiento</a>
+    <a href="#" class="mobile-link sub" data-page="salamanca">— Salamanca</a>
+    <a href="#" class="mobile-link sub" data-page="chapultepec">— Chapultepec</a>
+  </div>
+
+  <!-- PÁGINAS -->
+  <main>
+
+    <!-- INICIO -->
+    <section class="page active" id="page-inicio">
+      <div class="hero">
+        <div class="hero-decoration"></div>
+        <div class="hero-content">
+          <p class="hero-eyebrow">Bienvenido</p>
+          <h1 class="hero-title">Experiencias que<br/><em>transforman</em></h1>
+          <p class="hero-subtitle">Ofrecemos servicios de alta calidad pensados para brindarte comodidad, confianza y bienestar en cada momento.</p>
+          <div class="hero-cta">
+            <button class="btn-primary" data-page="alojamiento">Ver Alojamientos</button>
+            <button class="btn-ghost" data-page="nosotros">Conoce Más</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="visual-card card-1">
+            <span class="card-icon">🏡</span>
+            <p>Espacios únicos</p>
+          </div>
+          <div class="visual-card card-2">
+            <span class="card-icon">✦</span>
+            <p>Atención premium</p>
+          </div>
+          <div class="visual-card card-3">
+            <span class="card-icon">📍</span>
+            <p>Ubicaciones clave</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-features">
+        <h2 class="section-title">¿Por qué elegirnos?</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">🌿</div>
+            <h3>Confort Natural</h3>
+            <p>Espacios diseñados para armonizar con tu estilo de vida, priorizando tu bienestar.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔐</div>
+            <h3>Seguridad Total</h3>
+            <p>Tu tranquilidad es nuestra prioridad. Protección y privacidad garantizadas.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">💬</div>
+            <h3>Atención Personalizada</h3>
+            <p>Un equipo dedicado disponible para atender cada una de tus necesidades.</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📍</div>
+            <h3>Ubicación Estratégica</h3>
+            <p>En el corazón de la ciudad, cerca de todo lo que necesitas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section class="page" id="page-nosotros">
+      <div class="inner-hero">
+        <div class="inner-hero-text">
+          <p class="hero-eyebrow">Quiénes somos</p>
+          <h1>Nuestra <em>Historia</em></h1>
+          <p>Somos un equipo apasionado por crear experiencias memorables. Desde nuestros inicios, hemos trabajado para ofrecer servicios que marquen la diferencia.</p>
+        </div>
+      </div>
+      <div class="about-grid">
+        <div class="about-block">
+          <h2>Nuestra Misión</h2>
+          <p>Brindar servicios excepcionales que superen las expectativas de nuestros clientes, construyendo relaciones duraderas basadas en confianza, calidad y compromiso.</p>
+        </div>
+        <div class="about-block accent">
+          <h2>Nuestra Visión</h2>
+          <p>Ser reconocidos como el referente de excelencia en el sector, expandiendo nuestros servicios y manteniendo siempre el trato humano como pilar fundamental.</p>
+        </div>
+        <div class="about-block">
+          <h2>Nuestros Valores</h2>
+          <ul class="values-list">
+            <li>✦ Integridad y transparencia</li>
+            <li>✦ Innovación continua</li>
+            <li>✦ Compromiso con el cliente</li>
+            <li>✦ Responsabilidad social</li>
+          </ul>
+        </div>
+        <div class="about-block stats-block">
+          <div class="stat"><span class="stat-num">+200</span><span class="stat-label">Clientes satisfechos</span></div>
+          <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Años de experiencia</span></div>
+          <div class="stat"><span class="stat-num">2</span><span class="stat-label">Ubicaciones</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALOJAMIENTO -->
+    <section class="page" id="page-alojamiento">
+      <div class="inner-hero">
+        <div class="inner-hero-text">
+          <p class="hero-eyebrow">Nuestros espacios</p>
+          <h1>Elige tu <em>Alojamiento</em></h1>
+          <p>Contamos con dos ubicaciones en puntos estratégicos de la ciudad, cada una con su propio carácter y encanto.</p>
+        </div>
+      </div>
+      <div class="alojamiento-cards">
+        <div class="alo-card" data-page="salamanca">
+          <div class="alo-card-img salamanca-img">
+            <div class="alo-overlay">
+              <span class="alo-icon">🏛️</span>
+            </div>
+          </div>
+          <div class="alo-card-body">
+            <h2>Salamanca</h2>
+            <p>Elegancia clásica en una de las colonias más distinguidas de la ciudad. Arquitectura refinada y ambiente tranquilo.</p>
+            <button class="btn-primary" data-page="salamanca">Ver más →</button>
+          </div>
+        </div>
+        <div class="alo-card" data-page="chapultepec">
+          <div class="alo-card-img chapultepec-img">
+            <div class="alo-overlay">
+              <span class="alo-icon">🌳</span>
+            </div>
+          </div>
+          <div class="alo-card-body">
+            <h2>Chapultepec</h2>
+            <p>Rodeado de naturaleza y cultura. A pasos del bosque y los principales museos de la ciudad.</p>
+            <button class="btn-primary" data-page="chapultepec">Ver más →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SALAMANCA -->
+    <section class="page" id="page-salamanca">
+      <div class="inner-hero">
+        <div class="inner-hero-text">
+          <p class="hero-eyebrow"><span class="breadcrumb" data-page="alojamiento">Alojamiento</span> › Salamanca</p>
+          <h1>Salamanca</h1>
+          <p>Donde la elegancia clásica se une con el confort moderno.</p>
+        </div>
+      </div>
+      <div class="sub-content">
+        <div class="sub-info">
+          <h2>Acerca de este espacio</h2>
+          <p>Nuestro alojamiento en Salamanca se encuentra en el corazón de una de las colonias más exclusivas de la ciudad. Rodeado de cafés boutique, galerías de arte y restaurantes de primer nivel.</p>
+          <p>El espacio combina elementos arquitectónicos clásicos con comodidades contemporáneas para brindarte una experiencia inigualable.</p>
+          <div class="amenities">
+            <h3>Amenidades</h3>
+            <ul class="amenities-list">
+              <li>🛏️ Habitaciones amplias y luminosas</li>
+              <li>☕ Desayuno incluido</li>
+              <li>📶 WiFi de alta velocidad</li>
+              <li>🚗 Estacionamiento disponible</li>
+              <li>🔒 Acceso seguro 24/7</li>
+              <li>🧼 Limpieza diaria</li>
+            </ul>
+          </div>
+          <button class="btn-primary mt">Reservar ahora</button>
+        </div>
+        <div class="sub-map">
+          <div class="map-placeholder salamanca-map">
+            <span>📍 Colonia Salamanca<br/>Ciudad de México</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPULTEPEC -->
+    <section class="page" id="page-chapultepec">
+      <div class="inner-hero">
+        <div class="inner-hero-text">
+          <p class="hero-eyebrow"><span class="breadcrumb" data-page="alojamiento">Alojamiento</span> › Chapultepec</p>
+          <h1>Chapultepec</h1>
+          <p>Naturaleza, historia y modernidad en perfecta armonía.</p>
+        </div>
+      </div>
+      <div class="sub-content">
+        <div class="sub-info">
+          <h2>Acerca de este espacio</h2>
+          <p>Nuestro alojamiento en Chapultepec te ubica a pasos del bosque más icónico de la ciudad. Un refugio urbano donde la naturaleza y la cultura se encuentran.</p>
+          <p>Disfruta de vistas verdes, acceso inmediato a museos de clase mundial y la vibra única de esta zona privilegiada.</p>
+          <div class="amenities">
+            <h3>Amenidades</h3>
+            <ul class="amenities-list">
+              <li>🌳 Vistas al bosque</li>
+              <li>☕ Desayuno incluido</li>
+              <li>📶 WiFi de alta velocidad</li>
+              <li>🏋️ Área de ejercicio</li>
+              <li>🔒 Acceso seguro 24/7</li>
+              <li>🧼 Limpieza diaria</li>
+            </ul>
+          </div>
+          <button class="btn-primary mt">Reservar ahora</button>
+        </div>
+        <div class="sub-map">
+          <div class="map-placeholder chapultepec-map">
+            <span>📍 Colonia Chapultepec<br/>Ciudad de México</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-icon">◆</span>
+        <span class="brand-name">MiServicio</span>
+      </div>
+      <p class="footer-copy">© 2025 MiServicio. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <a href="#" data-page="inicio">Inicio</a>
+        <a href="#" data-page="nosotros">Nosotros</a>
+        <a href="#" data-page="alojamiento">Alojamiento</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
