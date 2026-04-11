@@ -234,7 +234,7 @@ main { margin-top: var(--nav-h); flex: 1; }
   min-height: calc(100vh - var(--nav-h));
   display: flex;
   align-items: center;
-  padding: 80px 5% 60px;
+  padding: 50px 5% 60px;
   gap: 60px;
   position: relative;
   overflow: hidden;
@@ -314,7 +314,7 @@ main { margin-top: var(--nav-h); flex: 1; }
    FEATURES — SVG icons
 ============================ */
 .section-features {
-  padding: 80px 5%;
+  padding: 50px 5%;
   background: var(--white);
 }
 
