@@ -388,7 +388,7 @@ main { margin-top: var(--nav-h); flex: 1; }
    AMENIDADES ADICIONALES
 ============================ */
 .section-amenities {
-  padding: 80px 5%;
+  padding: 50px 5%;
   background: var(--bg);
 }
 
@@ -459,7 +459,7 @@ main { margin-top: var(--nav-h); flex: 1; }
 ============================ */
 .inner-hero {
   background: linear-gradient(135deg, var(--title) 0%, #00954f 50%, var(--subtitle) 100%);
-  padding: 80px 5% 70px;
+  padding: 50px 5% 70px;
   color: var(--white);
 }
 
