@@ -959,7 +959,7 @@ main { margin-top: var(--nav-h); flex: 1; }
 
   #page-inicio .hero {
     grid-template-columns: 1fr;
-    padding: 3rem 5%;
+    padding: 1rem 5%;
     min-height: auto;
     gap: 2rem;
   }
