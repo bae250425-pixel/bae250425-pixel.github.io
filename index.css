@@ -870,6 +870,137 @@ main { margin-top: var(--nav-h); flex: 1; }
 .chapultepec-map { background: linear-gradient(135deg, #6a9a8b, #4a7a6a); }
 
 /* ============================
+   MAPA EMBED
+============================ */
+.map-embed-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.map-location-label {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--subtitle);
+  letter-spacing: .01em;
+}
+
+.map-location-label svg {
+  width: 15px;
+  height: 15px;
+  color: var(--title);
+  flex-shrink: 0;
+}
+
+.map-iframe {
+  width: 100%;
+  height: 340px;
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ============================
+   SPACE HIGHLIGHTS (sub-info)
+============================ */
+.space-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 1.4rem 0 0;
+}
+
+.space-highlights li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .94rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.space-highlights li svg {
+  width: 17px;
+  height: 17px;
+  color: var(--title);
+  flex-shrink: 0;
+}
+
+.space-highlights .highlight-warning {
+  color: #9a6200;
+  font-weight: 600;
+}
+
+.space-highlights .highlight-warning svg {
+  color: #c07a00;
+}
+
+/* ============================
+   AMENITIES TAGS SECTION
+============================ */
+.amenities-section {
+  background: var(--bg);
+  padding: 56px 5%;
+  border-top: 1px solid var(--border);
+}
+
+.amenities-title {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  color: var(--title);
+  margin-bottom: 28px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.amenities-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.atag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  padding: 7px 14px;
+  font-size: .84rem;
+  font-weight: 600;
+  color: var(--text);
+  font-family: var(--font-body);
+  transition: var(--transition);
+  cursor: default;
+  white-space: nowrap;
+}
+
+.atag:hover {
+  border-color: var(--title);
+  color: var(--title);
+  background: rgba(0,117,75,.04);
+}
+
+.atag svg {
+  width: 14px;
+  height: 14px;
+  color: var(--subtitle);
+  flex-shrink: 0;
+  transition: color var(--transition);
+}
+
+.atag:hover svg { color: var(--title); }
+
+/* ============================
    BOTONES GENERALES
 ============================ */
 .btn-primary {
