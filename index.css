@@ -770,7 +770,10 @@ main { margin-top: var(--nav-h); flex: 1; }
   align-items: center;
   justify-content: center;
 }
-
+.alo-img {
+  width: 200px;
+  height: 150px;
+}
 .salamanca-img   { background: linear-gradient(135deg, #00754b 0%, #005a38 100%); }
 .chapultepec-img { background: linear-gradient(135deg, #6a9a8b 0%, #4a7a6a 100%); }
 .alo-overlay     { display: flex; align-items: center; justify-content: center; }
