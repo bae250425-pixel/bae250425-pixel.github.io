@@ -6,277 +6,13 @@
   <title>BAE — Balance Apartment Experience</title>
   <link rel="stylesheet" href="index.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-
-  <!-- Flatpickr calendarios -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/l10n/es.js"></script>
-
-  <style>
-    /* ═══════════════════════════════════════════
-       HERO — dos columnas (sobreescribe index.css)
-    ═══════════════════════════════════════════ */
-    #page-inicio .hero {
-      display: grid !important;
-      grid-template-columns: 1fr 1fr !important;
-      align-items: center !important;
-      gap: 3rem !important;
-      min-height: calc(100vh - var(--nav-h)) !important;
-      padding: 5rem 5% 4rem !important;
-      flex-direction: unset !important;
-    }
-
-    #page-inicio .hero-decoration { display: none !important; }
-
-    #page-inicio .hero-content {
-      max-width: 560px;
-      z-index: 1;
-    }
-
-    #page-inicio .hero-visual {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: stretch !important;
-      gap: 0 !important;
-      z-index: 1;
-      width: 100% !important;
-    }
-
-    /* ═══════════════════════════════════════════
-       CARD DE RESERVA
-    ═══════════════════════════════════════════ */
-    .booking-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 2rem 2rem 1.6rem;
-      box-shadow: 0 8px 40px rgba(0,0,0,.10);
-      border: 1px solid var(--border);
-    }
-
-    .booking-card h2 {
-      font-family: var(--font-display);
-      font-size: 1.55rem;
-      color: var(--title);
-      margin: 0 0 .3rem;
-    }
-
-    .booking-intro {
-      color: var(--text-light);
-      font-size: .88rem;
-      line-height: 1.5;
-      margin: 0 0 1.4rem;
-    }
-
-    /* ─── Formulario ─── */
-    .booking-form {
-      display: flex;
-      flex-direction: column;
-      gap: .85rem;
-    }
-
-    .booking-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .85rem;
-    }
-
-    .bf {
-      display: flex;
-      flex-direction: column;
-      gap: .28rem;
-    }
-
-    .bf label {
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      color: var(--subtitle);
-    }
-
-    .bf-wrap {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-
-    .bf-icon {
-      position: absolute;
-      left: .7rem;
-      width: 15px;
-      height: 15px;
-      color: var(--subtitle);
-      pointer-events: none;
-      flex-shrink: 0;
-    }
-
-    .bf input {
-      width: 100%;
-      box-sizing: border-box;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: .65rem .85rem .65rem 2.2rem;
-      font-size: .92rem;
-      font-family: var(--font-body);
-      background: var(--bg);
-      color: var(--text);
-      outline: none;
-      transition: border-color .2s, background .2s;
-    }
-
-    .bf input[readonly] { cursor: pointer; }
-
-    .bf input:focus,
-    .bf input:hover {
-      border-color: var(--title);
-      background: var(--white);
-    }
-
-    /* ─── Botón solicitar ─── */
-    .btn-solicitar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .5rem;
-      background: var(--title);
-      color: var(--white);
-      border: none;
-      border-radius: var(--radius-sm);
-      padding: .85rem 1.2rem;
-      font-size: .93rem;
-      font-family: var(--font-body);
-      font-weight: 700;
-      cursor: pointer;
-      transition: background .2s, transform .15s, box-shadow .2s;
-      letter-spacing: .3px;
-      margin-top: .1rem;
-    }
-    .btn-solicitar:hover {
-      background: #005a38;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(0,117,75,.28);
-    }
-    .btn-solicitar svg { width: 16px; height: 16px; flex-shrink: 0; }
-
-    /* ─── Divisor ─── */
-    .bdivider {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      color: var(--text-light);
-      font-size: .78rem;
-    }
-    .bdivider::before,
-    .bdivider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ─── Botón Airbnb ─── */
-    .btn-airbnb {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .55rem;
-      background: var(--white);
-      color: #FF385C;
-      border: 2px solid #FF385C;
-      border-radius: var(--radius-sm);
-      padding: .75rem 1.2rem;
-      font-size: .9rem;
-      font-family: var(--font-body);
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background .2s, color .2s;
-      letter-spacing: .3px;
-    }
-    .btn-airbnb:hover { background: #FF385C; color: var(--white); }
-    .btn-airbnb svg { width: 18px; height: 18px; flex-shrink: 0; }
-
-    /* ─── Pie de card: contacto rápido ─── */
-    .booking-footer {
-      display: flex;
-      gap: 1.4rem;
-      flex-wrap: wrap;
-      padding: 1rem 0 0;
-      margin-top: 1rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .bfoot-item {
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-      font-size: .8rem;
-      color: var(--text-light);
-      text-decoration: none;
-      transition: color .2s;
-    }
-    .bfoot-item:hover { color: var(--title); }
-    .bfoot-item svg {
-      width: 13px;
-      height: 13px;
-      color: var(--subtitle);
-      flex-shrink: 0;
-    }
-
-    /* ─── Toast ─── */
-    .toast {
-      display: none;
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background: #2d7a47;
-      color: #fff;
-      padding: .9rem 1.4rem;
-      border-radius: var(--radius-sm);
-      font-family: var(--font-body);
-      font-size: .88rem;
-      z-index: 9999;
-      box-shadow: 0 6px 24px rgba(0,0,0,.15);
-      animation: toastIn .3s ease;
-    }
-    .toast.error { background: #c0392b; }
-    @keyframes toastIn {
-      from { opacity:0; transform:translateY(10px); }
-      to   { opacity:1; transform:translateY(0); }
-    }
-
-    /* ─── Flatpickr overrides ─── */
-    .flatpickr-calendar {
-      border-radius: var(--radius) !important;
-      box-shadow: var(--shadow-hover) !important;
-      font-family: var(--font-body) !important;
-    }
-    .flatpickr-day.selected,
-    .flatpickr-day.selected:hover {
-      background: var(--title) !important;
-      border-color: var(--title) !important;
-    }
-    .flatpickr-day.inRange {
-      background: rgba(0,117,75,.12) !important;
-      border-color: rgba(0,117,75,.12) !important;
-    }
-    .flatpickr-day.today { border-color: var(--subtitle) !important; }
-
-    /* ─── Responsive hero ─── */
-    @media (max-width: 768px) {
-      #page-inicio .hero {
-        grid-template-columns: 1fr !important;
-        padding: 4rem 5% 3rem !important;
-        min-height: auto !important;
-        gap: 2.5rem !important;
-      }
-      .booking-row { grid-template-columns: 1fr !important; }
-    }
-  </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
   <header class="navbar">
     <div class="navbar-brand" data-page="inicio">
       <img src="logo.png" alt="BAE Logo" class="brand-logo" id="brandLogo"
@@ -313,15 +49,14 @@
 
   <main>
 
-    <!-- ════════════════════════════════════════
+    <!-- ══════════════════════════════════════
          INICIO
-    ════════════════════════════════════════ -->
+    ══════════════════════════════════════ -->
     <section class="page active" id="page-inicio">
 
-      <!-- HERO: mensaje izquierda | reserva derecha -->
       <div class="hero">
 
-        <!-- Columna izquierda -->
+        <!-- Columna izquierda: mensaje -->
         <div class="hero-content">
           <p class="hero-eyebrow">Bienvenido a BAE</p>
           <h1 class="hero-title">Balance Apartment<br/><em>Experience</em></h1>
@@ -340,7 +75,6 @@
 
             <div class="booking-form">
 
-              <!-- Fechas -->
               <div class="booking-row">
                 <div class="bf">
                   <label>Llegada</label>
@@ -364,7 +98,6 @@
                 </div>
               </div>
 
-              <!-- Nombre / Teléfono -->
               <div class="booking-row">
                 <div class="bf">
                   <label>Nombre</label>
@@ -386,7 +119,6 @@
                 </div>
               </div>
 
-              <!-- Alojamiento -->
               <div class="bf">
                 <label>Alojamiento</label>
                 <div class="bf-wrap">
@@ -398,8 +130,7 @@
                 </div>
               </div>
 
-              <!-- Solicitar -->
-              <button type="button" class="btn-solicitar" onclick="enviarReserva()">
+              <button type="button" class="btn-solicitar" id="btnReservar">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
                 </svg>
@@ -408,7 +139,6 @@
 
               <div class="bdivider">o reserva directamente en</div>
 
-              <!-- Airbnb -->
               <a href="https://www.airbnb.mx/rooms/1572503605474537789?check_in=2026-04-10&check_out=2026-04-12&guests=1&adults=1&s=67&unique_share_id=40a3b740-c39e-4498-ad18-ddbe09496a1e"
                  target="_blank" class="btn-airbnb">
                 <svg viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -419,7 +149,6 @@
 
             </div><!-- /booking-form -->
 
-            <!-- Contacto rápido -->
             <div class="booking-footer">
               <a href="mailto:bae250425@gmail.com" class="bfoot-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -502,9 +231,9 @@
       </div>
     </section><!-- /page-inicio -->
 
-    <!-- ════════════════════════════════════════
+    <!-- ══════════════════════════════════════
          NOSOTROS
-    ════════════════════════════════════════ -->
+    ══════════════════════════════════════ -->
     <section class="page" id="page-nosotros">
       <div class="inner-hero">
         <div class="inner-hero-text">
@@ -554,9 +283,9 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
+    <!-- ══════════════════════════════════════
          ALOJAMIENTO
-    ════════════════════════════════════════ -->
+    ══════════════════════════════════════ -->
     <section class="page" id="page-alojamiento">
       <div class="inner-hero">
         <div class="inner-hero-text">
@@ -589,9 +318,9 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
+    <!-- ══════════════════════════════════════
          SALAMANCA
-    ════════════════════════════════════════ -->
+    ══════════════════════════════════════ -->
     <section class="page" id="page-salamanca">
       <div class="inner-hero">
         <div class="inner-hero-text">
@@ -627,9 +356,9 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════
+    <!-- ══════════════════════════════════════
          CHAPULTEPEC
-    ════════════════════════════════════════ -->
+    ══════════════════════════════════════ -->
     <section class="page" id="page-chapultepec">
       <div class="inner-hero">
         <div class="inner-hero-text">
@@ -670,7 +399,7 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-brand" data-page="inicio" style="cursor:pointer;">
+      <div class="footer-brand" data-page="inicio">
         <img src="logo.png" alt="BAE" class="footer-logo"
              onerror="this.style.display='none'; document.getElementById('footerFallback').style.display='flex';" />
         <div class="brand-fallback" id="footerFallback" style="display:none;">
@@ -690,69 +419,10 @@
   <!-- Toast -->
   <div class="toast" id="toast"></div>
 
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/l10n/es.js"></script>
   <script src="index.js"></script>
-  <script>
-    // ─── Calendarios ──────────────────────────────────────────
-    const fpLlegada = flatpickr("#llegada", {
-      locale: "es",
-      dateFormat: "d/m/Y",
-      minDate: "today",
-      disableMobile: false,
-      onChange(sel) {
-        if (sel[0]) {
-          const next = new Date(sel[0]);
-          next.setDate(next.getDate() + 1);
-          fpSalida.set("minDate", next);
-          if (fpSalida.selectedDates[0] && fpSalida.selectedDates[0] <= sel[0]) {
-            fpSalida.clear();
-          }
-        }
-      }
-    });
 
-    const fpSalida = flatpickr("#salida", {
-      locale: "es",
-      dateFormat: "d/m/Y",
-      minDate: new Date(Date.now() + 86400000),
-      disableMobile: false,
-    });
-
-    // ─── Toast ────────────────────────────────────────────────
-    function showToast(msg, isError) {
-      const t = document.getElementById('toast');
-      t.textContent = msg;
-      t.className = 'toast' + (isError ? ' error' : '');
-      t.style.display = 'block';
-      setTimeout(() => { t.style.display = 'none'; }, 4500);
-    }
-
-    // ─── Enviar reserva ───────────────────────────────────────
-    function enviarReserva() {
-      const llegada     = document.getElementById('llegada').value.trim();
-      const salida      = document.getElementById('salida').value.trim();
-      const nombre      = document.getElementById('nombre').value.trim();
-      const telefono    = document.getElementById('telefono').value.trim();
-      const alojamiento = document.getElementById('alojamiento').value.trim();
-
-      if (!llegada || !salida || !nombre || !telefono) {
-        showToast('Por favor completa todos los campos requeridos.', true);
-        return;
-      }
-
-      const asunto = encodeURIComponent(`Solicitud de reserva — ${nombre}`);
-      const cuerpo = encodeURIComponent(
-        `Nueva solicitud de reserva — BAE\n\n` +
-        `Nombre:       ${nombre}\n` +
-        `Teléfono:     ${telefono}\n` +
-        `Alojamiento:  ${alojamiento || 'No especificado'}\n` +
-        `Llegada:      ${llegada}\n` +
-        `Salida:       ${salida}\n\n` +
-        `Por favor confirmar disponibilidad y responder al huésped.`
-      );
-
-      window.location.href = `mailto:bae250425@gmail.com?subject=${asunto}&body=${cuerpo}`;
-      showToast('✔ Abriendo tu correo para enviar la solicitud…');
-    }
-  </script>
 </body>
 </html>
