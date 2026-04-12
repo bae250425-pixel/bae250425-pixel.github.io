@@ -15,8 +15,12 @@
   ══════════════════════════════════════ -->
   <header class="navbar">
     <div class="navbar-brand" data-page="inicio">
-      <img src="public/BAE_Circular png.png" alt="BAE Logo" class="brand-logo" id="brandLogo"
+      <img src="logo.png" alt="BAE Logo" class="brand-logo" id="brandLogo"
            onerror="this.style.display='none'; document.getElementById('brandFallback').style.display='flex';" />
+      <div class="brand-fallback" id="brandFallback">
+        <span class="brand-icon">◆</span>
+        <span class="brand-name">BAE</span>
+      </div>
     </div>
     <nav class="nav-links">
       <a href="#" class="nav-link active" data-page="inicio">Inicio</a>
@@ -132,15 +136,26 @@
                 </svg>
                 Solicitar reserva
               </button>
+
+              <div class="bdivider">o reserva directamente en</div>
+
+              <a href="https://www.airbnb.mx/rooms/1572503605474537789?check_in=2026-04-10&check_out=2026-04-12&guests=1&adults=1&s=67&unique_share_id=40a3b740-c39e-4498-ad18-ddbe09496a1e"
+                 target="_blank" class="btn-airbnb">
+                <svg viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 1C11.6 1 7 7.8 7 13.1c0 3.1 1.9 5.1 4.5 5.1 1.6 0 3-.8 4.5-2.4 1.5 1.6 2.9 2.4 4.5 2.4 2.6 0 4.5-2 4.5-5.1C25 7.8 20.4 1 16 1zm0 2.1c3.3 0 7 7.2 7 10c0 1.9-1.1 3.1-2.5 3.1-1.3 0-2.5-.9-3.9-2.7v-.1c-.1-.2-.4-.3-.6-.3s-.5.1-.6.3v.1c-1.4 1.8-2.6 2.7-3.9 2.7-1.4 0-2.5-1.2-2.5-3.1 0-2.8 3.7-10 7-10zm0 17.2c-1.5 0-2.9.6-4.2 1.8-1.1 1.1-1.8 2.4-1.8 4.2h12c0-1.7-.7-3.1-1.8-4.2-1.3-1.2-2.7-1.8-4.2-1.8z"/>
+                </svg>
+                Ver en Airbnb
+              </a>
+
             </div><!-- /booking-form -->
 
             <div class="booking-footer">
-              <a href="mailto:bae250425@gmail.com" class="bfoot-item">
+              <a href="/cdn-cgi/l/email-protection#2644474314131612141366414b474f4a0845494b" class="bfoot-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                   <polyline points="22,6 12,13 2,6"/>
                 </svg>
-                bae250425@gmail.com
+                <span class="__cf_email__" data-cfemail="0e6c6f6b3c3b3e3a3c3b4e69636f6762206d6163">[email&#160;protected]</span>
               </a>
               <a href="tel:5555555555" class="bfoot-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -260,6 +275,11 @@
             <li>✦ Equilibrio y bienestar</li>
           </ul>
         </div>
+        <div class="about-block stats-block">
+          <div class="stat"><span class="stat-num">+200</span><span class="stat-label">Huéspedes felices</span></div>
+          <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Años de historia</span></div>
+          <div class="stat"><span class="stat-num">2</span><span class="stat-label">Ubicaciones</span></div>
+        </div>
       </div>
     </section>
 
@@ -276,9 +296,9 @@
       </div>
       <div class="alojamiento-cards">
         <div class="alo-card" data-page="salamanca">
-         <div class="alo-card-img salamanca-img">
-          <img class="alo-img" src="public/fachada.jpg" alt="Salamanca" />
-        </div>
+          <div class="alo-card-img salamanca-img">
+            <div class="alo-overlay"><span class="alo-icon">🏛️</span></div>
+          </div>
           <div class="alo-card-body">
             <h2>Salamanca</h2>
             <p>Elegancia clásica en una de las colonias más distinguidas de la ciudad. Arquitectura refinada y ambiente tranquilo.</p>
@@ -302,38 +322,228 @@
          SALAMANCA
     ══════════════════════════════════════ -->
     <section class="page" id="page-salamanca">
+
+      <!-- Hero -->
       <div class="inner-hero">
         <div class="inner-hero-text">
-          <p class="hero-eyebrow"><span class="breadcrumb" data-page="alojamiento">BAE</span> | Salamanca</p>
+          <p class="hero-eyebrow"><span class="breadcrumb" data-page="alojamiento">Alojamiento</span> › Salamanca</p>
           <h1>Salamanca</h1>
-          <p>Confort • Estilo • Ubicación</p>
+          <p>Confort · Estilo · Ubicación</p>
         </div>
       </div>
+
+      <!-- Info + Mapa -->
       <div class="sub-content">
+
         <div class="sub-info">
           <h2>Acerca de este espacio</h2>
-          <p>Es un espacio acogedor, diseñado en un edificio moderno con elevador, dentro de una de las zonas más vibrantes, seguras y culturales de la Ciudad de México: la Roma Norte.</p>
+          <p>Cuenta con una recámara y baño completo. Disfruta del espacio en excelente zona, dentro de una de las colonias más vibrantes, seguras y culturales de la Ciudad de México: la Roma Norte.</p>
           <p>Ideal para dos personas, este alojamiento ofrece una estancia cómoda, funcional y totalmente equipada, perfecta tanto para descansar como para explorar la ciudad a tu ritmo.</p>
-          <div class="amenities">
-            <h3>Amenidades</h3>
-            <ul class="amenities-list">
-              <li><svg class="li-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Habitaciones amplias y luminosas</li>
-              <li><svg class="li-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="11" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg>Acceso seguro por código 24/7</li>
-              <li><svg class="li-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>WiFi de alta velocidad</li>
-              <li><svg class="li-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>Vigilancia 24/7</li>
-              <li><svg class="li-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>Limpieza y atención diaria</li>
-              <li><svg class="li-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Guía local personalizada</li>
-            </ul>
-          </div>
+
+          <!-- Highlights rápidos -->
+          <ul class="space-highlights">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              1 King size bed
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>
+              High-speed WiFi
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg>
+              Smart TV
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+              Balcony &amp; Shared Rooftop
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 19.53A2 2 0 005.5 22h13a2 2 0 001.68-3.06C18.35 16.33 16 12 17 8z"/><line x1="12" y1="22" x2="12" y2="13"/></svg>
+              Full equipped kitchen
+            </li>
+            <li class="highlight-warning">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              No parking available
+            </li>
+          </ul>
+
           <a href="https://www.airbnb.mx/rooms/1572503605474537789?check_in=2026-04-10&check_out=2026-04-12&guests=1&adults=1&s=67&unique_share_id=40a3b740-c39e-4498-ad18-ddbe09496a1e"
-             target="_blank" class="btn-primary mt btn-link">Reservar en Airbnb</a>
+             target="_blank" class="btn-primary mt btn-link">Reserve on Airbnb</a>
         </div>
+
+        <!-- Mapa -->
         <div class="sub-map">
-          <div class="map-placeholder salamanca-map">
-            <span>📍 Colonia Salamanca<br/>Ciudad de México</span>
+          <div class="map-embed-wrap">
+            <div class="map-location-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Salamanca 31, Roma Nte., Cuauhtémoc, 06700 CDMX
+            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.0!2d-99.1677!3d19.4196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff4b6f6f6f6f%3A0x0!2sSalamanca%2031%2C%20Roma%20Nte.%2C%20Cuauht%C3%A9moc%2C%2006700%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1681000000000!5m2!1ses!2smx&q=Salamanca+31,+Roma+Norte,+Ciudad+de+Mexico"
+              class="map-iframe"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación Salamanca">
+            </iframe>
           </div>
         </div>
       </div>
+
+      <!-- Amenidades -->
+      <div class="amenities-section">
+        <h2 class="amenities-title">Amenities</h2>
+        <div class="amenities-tags">
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>
+            Wireless Internet
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg>
+            TV
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 19.53A2 2 0 005.5 22h13a2 2 0 001.68-3.06C18.35 16.33 16 12 17 8z"/><line x1="12" y1="22" x2="12" y2="13"/></svg>
+            Full Kitchen
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            Coffee Maker
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Blender
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+            Refrigerator
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 6v6l4 2"/></svg>
+            Stove
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 12h10M12 7v10"/></svg>
+            Microwave
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+            Oven
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            Cooking Basics
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M3 12h3M18 12h3M12 3v3M12 18v3"/></svg>
+            Dishes &amp; Silverware
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Dining Area
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v5a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg>
+            Coffee
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h6M3 15h6"/></svg>
+            Living Room
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            Portable Fans
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            Bed Linens
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14a2 2 0 012 2v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zM3 10h18"/></svg>
+            Clothing Storage
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 3v18"/></svg>
+            Room-Darkening Shades
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 006 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></svg>
+            Hair Dryer
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/></svg>
+            Shampoo
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10M12 21V11M5 11h14l-2-7H7L5 11z"/></svg>
+            Body Soap
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8l3 7H5L8 2zM5 9v11a2 2 0 002 2h10a2 2 0 002-2V9"/></svg>
+            Shower Gel
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 110-20 10 10 0 010 20z"/><path d="M12 8v4l3 3"/></svg>
+            Hot Water
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            Iron
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 00-3 3v7h6V5a3 3 0 00-3-3zM5 10h14l-1 10H6L5 10z"/></svg>
+            Hangers
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Shoe Rack &amp; Coat Rack
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="12" cy="12" r="5"/></svg>
+            Mirror
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/><rect x="11" y="4" width="2" height="2"/></svg>
+            Elevator in Building
+          </span>
+
+          <span class="atag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+            Natural Light &amp; Patio View
+          </span>
+
+        </div><!-- /amenities-tags -->
+      </div><!-- /amenities-section -->
+
     </section>
 
     <!-- ══════════════════════════════════════
@@ -400,9 +610,5 @@
   <div class="toast" id="toast"></div>
 
   <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/l10n/es.js"></script>
-  <script src="index.js"></script>
-
-</body>
-</html>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script
+    
