@@ -766,17 +766,25 @@ main { margin-top: var(--nav-h); flex: 1; }
 .alo-card-img {
   height: 220px;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
+
+/* Imagen real: cubre todo el contenedor */
 .alo-img {
-  width: 200px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
 }
+
+.alo-card:hover .alo-img { transform: scale(1.04); }
+
+/* Fallback cuando no hay imagen: fondo degradado + icono centrado */
 .salamanca-img   { background: linear-gradient(135deg, #00754b 0%, #005a38 100%); }
 .chapultepec-img { background: linear-gradient(135deg, #6a9a8b 0%, #4a7a6a 100%); }
-.alo-overlay     { display: flex; align-items: center; justify-content: center; }
+.alo-overlay     { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
 .alo-icon        { font-size: 5rem; filter: drop-shadow(0 4px 12px rgba(0,0,0,.2)); }
 
 .alo-card-body { padding: 32px; }
@@ -962,7 +970,7 @@ main { margin-top: var(--nav-h); flex: 1; }
 
   #page-inicio .hero {
     grid-template-columns: 1fr;
-    padding: 1rem 5%;
+    padding: 3rem 5%;
     min-height: auto;
     gap: 2rem;
   }
