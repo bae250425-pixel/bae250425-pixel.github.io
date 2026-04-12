@@ -28,6 +28,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden; /* evita scroll horizontal global */
 }
 
 /* ============================
@@ -216,7 +217,7 @@ body {
 /* ============================
    PAGES
 ============================ */
-main { margin-top: var(--nav-h); flex: 1; }
+main { margin-top: var(--nav-h); flex: 1; overflow-x: hidden; }
 
 .page { display: none; animation: pageIn 0.4s ease; }
 .page.active { display: block; }
@@ -238,9 +239,7 @@ main { margin-top: var(--nav-h); flex: 1; }
   padding: 3rem 5%;
 }
 
-#page-inicio .hero-content {
-  max-width: 560px;
-}
+#page-inicio .hero-content { max-width: 560px; }
 
 #page-inicio .hero-visual {
   display: flex;
@@ -306,7 +305,6 @@ main { margin-top: var(--nav-h); flex: 1; }
   margin: 0 0 1.3rem;
 }
 
-/* Form */
 .booking-form {
   display: flex;
   flex-direction: column;
@@ -371,7 +369,6 @@ main { margin-top: var(--nav-h); flex: 1; }
   background: var(--white);
 }
 
-/* Botón solicitar */
 .btn-solicitar {
   display: flex;
   align-items: center;
@@ -398,24 +395,6 @@ main { margin-top: var(--nav-h); flex: 1; }
 
 .btn-solicitar svg { width: 16px; height: 16px; flex-shrink: 0; }
 
-/* Divisor */
-.bdivider {
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-  color: var(--text-light);
-  font-size: .78rem;
-}
-
-.bdivider::before,
-.bdivider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-
-/* Botón Airbnb */
 .btn-airbnb {
   display: flex;
   align-items: center;
@@ -438,7 +417,6 @@ main { margin-top: var(--nav-h); flex: 1; }
 .btn-airbnb:hover { background: #FF385C; color: var(--white); }
 .btn-airbnb svg { width: 18px; height: 18px; flex-shrink: 0; }
 
-/* Footer de card */
 .booking-footer {
   display: flex;
   gap: 1.2rem;
@@ -516,7 +494,7 @@ main { margin-top: var(--nav-h); flex: 1; }
 .flatpickr-day.today { border-color: var(--subtitle) !important; }
 
 /* ============================
-   AMENIDADES
+   AMENIDADES (Inicio)
 ============================ */
 .section-amenities {
   padding: 72px 5%;
@@ -607,6 +585,15 @@ main { margin-top: var(--nav-h); flex: 1; }
   color: var(--white);
   margin: 12px 0 20px;
   line-height: 1.15;
+}
+
+.inner-hero h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  color: rgba(255,255,255,0.9);
+  margin: 12px 0 0;
+  font-weight: 400;
+  font-style: italic;
 }
 
 .inner-hero h1 em { font-style: italic; color: rgba(255,255,255,.8); }
@@ -769,7 +756,6 @@ main { margin-top: var(--nav-h); flex: 1; }
   overflow: hidden;
 }
 
-/* Imagen real: cubre todo el contenedor */
 .alo-img {
   width: 100%;
   height: 100%;
@@ -781,7 +767,6 @@ main { margin-top: var(--nav-h); flex: 1; }
 
 .alo-card:hover .alo-img { transform: scale(1.04); }
 
-/* Fallback cuando no hay imagen: fondo degradado + icono centrado */
 .salamanca-img   { background: linear-gradient(135deg, #00754b 0%, #005a38 100%); }
 .chapultepec-img { background: linear-gradient(135deg, #6a9a8b 0%, #4a7a6a 100%); }
 .alo-overlay     { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
@@ -905,7 +890,7 @@ main { margin-top: var(--nav-h); flex: 1; }
 }
 
 /* ============================
-   SPACE HIGHLIGHTS (sub-info)
+   SPACE HIGHLIGHTS
 ============================ */
 .space-highlights {
   list-style: none;
@@ -936,8 +921,71 @@ main { margin-top: var(--nav-h); flex: 1; }
   font-weight: 600;
 }
 
-.space-highlights .highlight-warning svg {
-  color: #c07a00;
+.space-highlights .highlight-warning svg { color: #c07a00; }
+
+/* ============================
+   GALERÍA — CORREGIDA
+   Problema: las imágenes desbordaban porque
+   .gallery-main no tenía altura fija ni overflow:hidden,
+   y .gallery-side no tenía altura acotada al grid.
+============================ */
+.gallery {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 12px;
+  max-width: 1200px;
+  width: 100%;           /* nunca supera su padre */
+  margin: 0 auto 56px;
+  padding: 0 5%;
+  /* altura fija para todo el bloque de galería */
+  height: 480px;
+  box-sizing: border-box;
+}
+
+/* Imagen principal */
+.gallery-main {
+  height: 100%;
+  overflow: hidden;      /* recorta cualquier exceso */
+  border-radius: var(--radius);
+}
+
+.gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: var(--radius);
+  transition: transform 0.4s ease;
+}
+
+.gallery-main img:hover { transform: scale(1.02); }
+
+/* Columna lateral */
+.gallery-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;          /* se limita a la altura del grid */
+  overflow: hidden;      /* recorta el exceso — elimina el scroll */
+}
+
+/* Cada miniatura ocupa una fracción equitativa */
+.gallery-side img {
+  flex: 1 1 0;           /* reparte el espacio disponible entre todas */
+  width: 100%;
+  min-height: 0;         /* permite que flex shrink funcione correctamente */
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-sm);
+  display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-side img:hover {
+  transform: scale(1.03);
+  opacity: .92;
 }
 
 /* ============================
@@ -1093,6 +1141,30 @@ main { margin-top: var(--nav-h); flex: 1; }
   }
   .story-deco { flex-direction: row; }
   .story-letter { font-size: 3.5rem; }
+
+  /* Galería: en tablet apilamos vertical */
+  .gallery {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .gallery-main {
+    height: 300px;
+  }
+
+  .gallery-side {
+    flex-direction: row;
+    height: 100px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 8px;
+  }
+
+  .gallery-side img {
+    flex: 0 0 120px;
+    height: 100%;
+    border-radius: var(--radius-sm);
+  }
 }
 
 @media (max-width: 768px) {
@@ -1119,52 +1191,12 @@ main { margin-top: var(--nav-h); flex: 1; }
   .about-grid  { grid-template-columns: 1fr; }
   .alojamiento-cards { grid-template-columns: 1fr; }
   .section-title { font-size: 1.6rem; }
+
+  .gallery-main { height: 220px; }
+
+  .gallery-side {
+    height: 80px;
+  }
+
+  .gallery-side img { flex: 0 0 100px; }
 }
-
-.gallery {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 16px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-/* Imagen grande */
-.gallery-main img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
-}
-
-/* Columna derecha */
-.gallery-side {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-height: 500px;
-  overflow-y: auto;
-  padding-right: 5px;
-}
-
-/* Imágenes pequeñas */
-.gallery-side img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
