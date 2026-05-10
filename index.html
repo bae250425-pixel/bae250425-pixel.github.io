@@ -9,45 +9,94 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css" />
 
   <style>
-    /* ── INICIO: hero 2 columnas (texto | cards) ── */
+    /* ── INICIO: hero columna única ── */
     #page-inicio .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 3rem;
-      min-height: calc(100vh - var(--nav-h));
-      padding: 3rem 5%;
-    }
-
-    #page-inicio .hero .alojamiento-cards {
       display: flex;
       flex-direction: column;
-      gap: 24px;
-      padding: 0;
-      max-width: 100%;
-      margin: 0;
+      justify-content: center;
+      gap: 2.5rem;
+      min-height: calc(100vh - var(--nav-h));
+      padding: 4rem 5%;
+      max-width: 820px;
     }
 
-    #page-inicio .hero .alo-card {
-      display: grid;
-      grid-template-columns: 180px 1fr;
+    /* Destination links bajo el hero */
+    .dest-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: .5rem;
     }
 
-    #page-inicio .hero .alo-card-img {
-      height: 100%;
-      min-height: 140px;
+    .dest-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 22px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+      min-width: 200px;
     }
 
-    #page-inicio .hero .alo-card-body {
-      padding: 20px 24px;
+    .dest-link:hover {
+      border-color: var(--title);
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
     }
 
-    #page-inicio .hero .alo-card-body h2 { font-size: 1.3rem; margin-bottom: 8px; }
-    #page-inicio .hero .alo-card-body p  { font-size: .88rem; margin-bottom: 16px; }
+    .dest-link-img {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
 
-    /* ── SALAMANCA: 2 bloques sub-content ── */
+    .dest-link-placeholder {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, #6a9a8b 0%, #4a7a6a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-    /* Bloque 1: highlights (izq) + booking card (der) */
+    .dest-link-placeholder svg {
+      width: 24px;
+      height: 24px;
+      color: rgba(255,255,255,.7);
+    }
+
+    .dest-link-info { display: flex; flex-direction: column; gap: 2px; }
+
+    .dest-link-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--title);
+    }
+
+    .dest-link-sub {
+      font-size: .78rem;
+      color: var(--text-light);
+    }
+
+    .dest-link-arrow {
+      margin-left: auto;
+      color: var(--subtitle);
+      font-size: 1.1rem;
+      transition: transform var(--transition);
+    }
+
+    .dest-link:hover .dest-link-arrow { transform: translateX(4px); }
+
+    /* ── SALAMANCA & CHAPULTEPEC: 2 bloques ── */
     .sub-content-top {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -64,7 +113,6 @@
       gap: 24px;
     }
 
-    /* Bloque 2: descripción (izq) + mapa (der) */
     .sub-content-bottom {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -75,7 +123,7 @@
       align-items: start;
     }
 
-    /* ── AMENIDADES + POLÍTICAS: 2 columnas ── */
+    /* ── Amenidades + Políticas ── */
     .amenities-inner {
       display: grid;
       grid-template-columns: 1fr 380px;
@@ -87,29 +135,52 @@
 
     .policies-col .about-block { margin: 0; }
 
-    /* ── Inner hero compacto para subpáginas ── */
+    /* ── Inner hero compacto ── */
     #page-salamanca .inner-hero,
     #page-chapultepec .inner-hero {
       padding: 32px 5% 28px;
     }
 
+    /* ── Próximamente badge ── */
+    .pronto-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 100%;
+      min-height: 200px;
+      background: linear-gradient(135deg, #6a9a8b 0%, #4a7a6a 100%);
+    }
+
+    .pronto-text {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.9);
+      letter-spacing: 1px;
+    }
+
+    .pronto-sub {
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+    }
+
     /* ── Responsive ── */
     @media (max-width: 900px) {
-      #page-inicio .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-      #page-inicio .hero .alo-card {
-        grid-template-columns: 1fr;
-      }
-      #page-inicio .hero .alo-card-img {
-        height: 180px;
-      }
       .sub-content-top,
       .sub-content-bottom,
       .amenities-inner {
         grid-template-columns: 1fr;
       }
+    }
+
+    @media (max-width: 600px) {
+      .dest-links { flex-direction: column; }
+      .dest-link  { min-width: auto; }
     }
   </style>
 </head>
@@ -155,46 +226,41 @@
     <!-- ==================== INICIO ==================== -->
     <section class="page active" id="page-inicio">
 
-      <!-- Hero: 2 columnas → texto izquierda | cards alojamiento derecha -->
       <div class="hero">
+        <p class="hero-eyebrow">Bienvenido a BAE</p>
+        <h1 class="hero-title">Balance Apartment<br/><em>Experience</em></h1>
+        <p class="hero-subtitle">Encontrarás alojamientos amueblados con diseño, confort y excelente ubicación, situados en la exclusiva zona de Roma Norte, CDMX.</p>
 
-        <div class="hero-content">
-          <p class="hero-eyebrow">Bienvenido a BAE</p>
-          <h1 class="hero-title">Balance Apartment<br/><em>Experience</em></h1>
-          <h3 class= hero-subtitle>Hospedajes en CDMX | Alojamientos Exclusivo en el corazón de Roma Norte</h3>
-          <p class="hero-subtitle">• Balance • Apartment • Experience</p>
-          <p class="hero-subtitle"> Encontrarás alojamientos amueblados con diseño, confort y excelente ubicación, situados en la exclusiva zona de Roma Norte, CDMX.</p>
-          <div class="hero-cta">
-            <button class="btn-primary" data-page="alojamiento">Ver Alojamientos</button>
-            <button class="btn-ghost" data-page="nosotros">Nuestra Historia</button>
+        <div class="dest-links">
+          <div class="dest-link" data-page="salamanca">
+            <img class="dest-link-img" src="public/fachada.jpg" alt="Salamanca"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="dest-link-placeholder" style="display:none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div class="dest-link-info">
+              <span class="dest-link-name">Salamanca</span>
+              <span class="dest-link-sub">Roma Norte · Disponible</span>
+            </div>
+            <span class="dest-link-arrow">→</span>
+          </div>
+
+          <div class="dest-link" data-page="chapultepec">
+            <div class="dest-link-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <div class="dest-link-info">
+              <span class="dest-link-name">Chapultepec</span>
+              <span class="dest-link-sub">Próximamente</span>
+            </div>
+            <span class="dest-link-arrow">→</span>
           </div>
         </div>
 
-        <!-- Cards de alojamiento — columna derecha del hero -->
-        <div class="alojamiento-cards">
-          <div class="alo-card" data-page="salamanca">
-            <div class="alo-card-img salamanca-img">
-              <img class="alo-img" src="public/fachada.jpg" alt="Salamanca" />
-            </div>
-            <div class="alo-card-body">
-              <h2>Salamanca</h2>
-              <p>Elegancia clásica en una de las colonias más distinguidas de la ciudad. Arquitectura refinada y ambiente tranquilo.</p>
-              <button class="btn-primary" data-page="salamanca">Ver más →</button>
-            </div>
-          </div>
-          <div class="alo-card" data-page="chapultepec">
-            <div class="alo-card-img chapultepec-img">
-              <div class="alo-overlay"><span class="alo-icon">🌳</span></div>
-            </div>
-            <div class="alo-card-body">
-              <h2>Chapultepec</h2>
-              <p>Rodeado de naturaleza y cultura. A pasos del bosque y los principales museos de la ciudad.</p>
-              <button class="btn-primary" data-page="chapultepec">Ver más →</button>
-            </div>
-          </div>
+        <div class="hero-cta">
+          <button class="btn-primary" data-page="nosotros">Nuestra Historia</button>
         </div>
-
-      </div><!-- /hero -->
+      </div>
 
       <!-- AMENIDADES -->
       <div class="section-amenities">
@@ -203,50 +269,43 @@
 
           <div class="amenity-item">
             <div class="amenity-icon-wrap">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="amen-svg">
-                <rect x="10" y="20" width="28" height="20" rx="3"/><path d="M16 20v-5a8 8 0 0116 0v5"/>
-                <rect x="20" y="28" width="8" height="6" rx="1.5"/><line x1="24" y1="34" x2="24" y2="37"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="amen-svg">
+                <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+                <circle cx="12" cy="16" r="1.5" fill="currentColor" stroke="none"/>
               </svg>
             </div>
             <h4>Acceso por código</h4>
-            <p>Olvídate de las llaves. Nuestro sistema de entrada con código te brinda total comodidad, seguridad y flexibilidad para que entres y salgas cuando quieras sin complicaciones.</p>
+            <p>Olvídate de las llaves. Nuestro sistema de entrada con código te brinda total comodidad, seguridad y flexibilidad para que entres y salgas cuando quieras.</p>
           </div>
 
           <div class="amenity-item">
             <div class="amenity-icon-wrap">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="amen-svg">
-                <circle cx="24" cy="18" r="7"/><circle cx="24" cy="18" r="2.5" fill="currentColor" stroke="none"/>
-                <path d="M14 32c0-5.5 4.5-10 10-10s10 4.5 10 10"/>
-                <line x1="8" y1="42" x2="40" y2="42"/>
-                <path d="M10 28l-4 2M38 28l4 2M10 34l-4 4M38 34l4 4"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="amen-svg">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
             </div>
             <h4>Vigilancia 24/7</h4>
-            <p>El edificio cuenta con seguridad y vigilancia las 24 horas, asegurando que durante toda tu estancia siempre haya personal disponible para asistirte y brindarte tranquilidad.</p>
+            <p>El edificio cuenta con seguridad las 24 horas, asegurando que durante toda tu estancia siempre haya personal disponible para asistirte.</p>
           </div>
 
           <div class="amenity-item">
             <div class="amenity-icon-wrap">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="amen-svg">
-                <path d="M6 18c5-7.3 12.5-12 18-12s13 4.7 18 12"/>
-                <path d="M11 25c3.7-5.3 8-8 13-8s9.3 2.7 13 8"/>
-                <path d="M16.5 32c2.3-3.3 4.7-5 7.5-5s5.2 1.7 7.5 5"/>
-                <circle cx="24" cy="38" r="2.5" fill="currentColor" stroke="none"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="amen-svg">
+                <path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/>
               </svg>
             </div>
             <h4>WiFi de alta velocidad</h4>
-            <p>Trabaja o disfruta del entretenimiento sin interrupciones. Nuestras propiedades ofrecen WiFi de alta velocidad y conexión estable, ideal para videollamadas, streaming y trabajo remoto.</p>
+            <p>Trabaja o disfruta del entretenimiento sin interrupciones. WiFi de alta velocidad ideal para videollamadas, streaming y trabajo remoto.</p>
           </div>
 
           <div class="amenity-item">
             <div class="amenity-icon-wrap">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="amen-svg">
-                <circle cx="20" cy="20" r="9"/><path d="M20 13v7l5 3"/>
-                <path d="M27 31l12 8"/><path d="M34 36l4-6"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="amen-svg">
+                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
               </svg>
             </div>
             <h4>Guía local personalizada</h4>
-            <p>Vive la ciudad como un verdadero local. Te ofrecemos recomendaciones personalizadas de los mejores restaurantes, atracciones y experiencias para que disfrutes una estancia única e inolvidable.</p>
+            <p>Vive la ciudad como un verdadero local. Recomendaciones personalizadas de los mejores restaurantes, atracciones y experiencias únicas.</p>
           </div>
 
         </div>
@@ -273,7 +332,7 @@
           <p>Éramos esa persona a la que llamas al final del día, con quien compartes horas de conversación, risas, sueños y silencios que también dicen mucho. El tiempo hizo lo suyo. La amistad se transformó en amor, el amor en una historia, y esa historia en una vida juntos.</p>
           <p>Nos hicimos novios, luego esposos… y sin planearlo, aquella palabra que nos acompañó desde el inicio, siguió encontrando su lugar en cada etapa.</p>
           <p>Hoy, <strong>BAE —Balance Apartment Experience—</strong> es mucho más que un espacio. Es la extensión de lo que somos y de lo que creemos: que los lugares también pueden abrazar, que los detalles pueden contar historias, y que cada estancia puede sentirse como un <em>"antes de todo lo demás"</em>.</p>
-          <p>Creamos este lugar pensando en ti, en que encuentres equilibrio, descanso y conexión. Que al llegar, sientas esa calidez que nosotros sentimos desde el principio. Que aquí también tengas tu momento, tu pausa, tu historia.</p>
+          <p>Creamos este lugar pensando en ti, en que encuentres equilibrio, descanso y conexión. Que al llegar, sientas esa calidez que nosotros sentimos desde el principio.</p>
           <p class="story-closing">Porque BAE siempre ha sido eso: poner lo importante <em>"before anyone else"</em>. Y hoy, eso también te incluye a ti.</p>
         </div>
       </div>
@@ -320,7 +379,10 @@
         </div>
         <div class="alo-card" data-page="chapultepec">
           <div class="alo-card-img chapultepec-img">
-            <div class="alo-overlay"><span class="alo-icon">🌳</span></div>
+            <div class="alo-overlay pronto-badge">
+              <span class="pronto-text">Próximamente</span>
+              <span class="pronto-sub">Esperalo pronto</span>
+            </div>
           </div>
           <div class="alo-card-body">
             <h2>Chapultepec</h2>
@@ -340,7 +402,7 @@
         </div>
       </div>
       <br>
-      <!-- Galería de fotos -->
+
       <div class="gallery">
         <div class="gallery-main">
           <img src="public/img1.jpg" alt="Vista principal del apartamento" />
@@ -353,148 +415,122 @@
         </div>
       </div>
 
-      <!-- BLOQUE 1: Highlights (izq) | Booking card (der) -->
+      <!-- Highlights + Booking -->
       <div class="sub-content-top">
-
-        <!-- Columna izquierda: características del depto -->
         <div class="sub-highlights-col">
           <h2>El espacio</h2>
           <ul class="space-highlights">
             <li>
+              <!-- Piso / planta -->
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              Third floor
+              Piso 3 con elevador
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>
-              1 bedroom with king-size bed
+              <!-- Cama -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 14h20v6H2z"/><path d="M2 14V8a2 2 0 012-2h7v8"/><path d="M13 6h7a2 2 0 012 2v6"/></svg>
+              1 recámara, cama king-size
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg>
-              1 full bathroom
+              <!-- Baño -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 C9 4 10.5 2 12 2s3 2 3 4v10H9V6z"/><rect x="4" y="12" width="16" height="4" rx="2"/><path d="M6 16v3M18 16v3"/></svg>
+              Baño completo
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
-              Equipped kitchen
+              <!-- Cocina -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><circle cx="16" cy="10" r="2"/><line x1="2" y1="14" x2="22" y2="14"/></svg>
+              Cocina equipada
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 19.53A2 2 0 005.5 22h13a2 2 0 001.68-3.06C18.35 16.33 16 12 17 8z"/><line x1="12" y1="22" x2="12" y2="13"/></svg>
-              Living/dining room
+              <!-- Sala -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9V6a2 2 0 00-2-2H6a2 2 0 00-2 2v3"/><path d="M2 11a2 2 0 012 2v2h16v-2a2 2 0 014 0v5H2v-5a2 2 0 012-2z"/><line x1="6" y1="20" x2="6" y2="22"/><line x1="18" y1="20" x2="18" y2="22"/></svg>
+              Sala / comedor
             </li>
             <li class="highlight-warning">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              No parking available
+              <!-- Sin estacionamiento -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+              Sin estacionamiento
             </li>
           </ul>
           <a href="https://es-l.airbnb.com/rooms/1662726840609695843?unique_share_id=7ce4b016-e040-4147-88e6-edc22e22e296&viralityEntryPoint=1&s=76"
-             target="_blank" class="btn-primary btn-link">Reserve on Airbnb</a>
+             target="_blank" class="btn-primary btn-link">Reservar en Airbnb</a>
         </div>
 
-        <!-- Columna derecha: formulario de reserva -->
+        <!-- Booking card -->
         <div class="hero-visual">
           <div class="booking-card">
             <h2>Reserva tu estancia</h2>
             <p class="booking-intro">Elige tus fechas y completa el formulario. Te contactaremos a la brevedad para confirmar.</p>
-
             <div class="booking-form">
               <div class="booking-row">
                 <div class="bf">
                   <label>Llegada</label>
                   <div class="bf-wrap">
-                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="3" y="4" width="18" height="18" rx="2"/>
-                      <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                    </svg>
+                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                     <input type="text" id="llegada" placeholder="dd/mm/aaaa" readonly />
                   </div>
                 </div>
                 <div class="bf">
                   <label>Salida</label>
                   <div class="bf-wrap">
-                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="3" y="4" width="18" height="18" rx="2"/>
-                      <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                    </svg>
+                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                     <input type="text" id="salida" placeholder="dd/mm/aaaa" readonly />
                   </div>
                 </div>
               </div>
-
               <div class="booking-row">
                 <div class="bf">
                   <label>Nombre</label>
                   <div class="bf-wrap">
-                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
-                    </svg>
+                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                     <input type="text" id="nombre" placeholder="Tu nombre completo" />
                   </div>
                 </div>
                 <div class="bf">
                   <label>Teléfono</label>
                   <div class="bf-wrap">
-                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
-                    </svg>
+                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
                     <input type="tel" id="telefono" placeholder="55 1234 5678" />
                   </div>
                 </div>
               </div>
-
               <div class="bf">
                 <label>Alojamiento</label>
                 <div class="bf-wrap">
-                  <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-                    <polyline points="9 22 9 12 15 12 15 22"/>
-                  </svg>
+                  <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                   <input type="text" id="alojamiento" value="Salamanca" readonly />
                 </div>
               </div>
-
               <button type="button" class="btn-solicitar" id="btnReservar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                 Solicitar reserva
               </button>
             </div>
-
             <div class="booking-footer">
               <a href="mailto:bae250425@gmail.com" class="bfoot-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 bae250425@gmail.com
               </a>
               <a href="tel:5555555555" class="bfoot-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
                 555-555-5555
               </a>
               <span class="bfoot-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 Ciudad de México
               </span>
             </div>
           </div>
         </div>
+      </div>
 
-      </div><!-- /sub-content-top -->
-
-      <!-- BLOQUE 2: Descripción (izq) | Mapa (der) -->
+      <!-- Descripción + Mapa -->
       <div class="sub-content-bottom">
-
         <div class="sub-info">
           <h2>SALAMANCA | Confort • Estilo • Ubicación</h2>
           <p>Es un espacio acogedor, diseñado en un edificio moderno con elevador, dentro de una de las zonas más vibrantes, seguras y culturales de la Ciudad de México: la Roma Norte.</p>
           <p>Ideal para dos personas, este alojamiento ofrece una estancia cómoda, funcional y totalmente equipada, perfecta tanto para descansar como para explorar la ciudad a tu ritmo.</p>
           <p>Cuenta con una recámara y baño completo. Disfruta del espacio en excelente zona.</p>
         </div>
-
         <div class="sub-map">
           <div class="map-embed-wrap">
             <div class="map-location-label">
@@ -503,97 +539,59 @@
             </div>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.0!2d-99.1677!3d19.4196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff4b6f6f6f6f%3A0x0!2sSalamanca%2031%2C%20Roma%20Nte.%2C%20Cuauht%C3%A9moc%2C%2006700%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1681000000000!5m2!1ses!2smx&q=Salamanca+31,+Roma+Norte,+Ciudad+de+Mexico"
-              class="map-iframe"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Ubicación Salamanca">
+              class="map-iframe" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="Ubicación Salamanca">
             </iframe>
           </div>
         </div>
+      </div>
 
-      </div><!-- /sub-content-bottom -->
-
-      <!-- BLOQUE 3: Amenidades (izq) | Políticas de reserva (der) -->
+      <!-- Amenidades + Políticas -->
       <div class="amenities-section">
         <div class="amenities-inner">
-
-          <!-- Columna izquierda: tags de amenidades -->
           <div>
-            <h2 class="amenities-title" style="margin-left:0; margin-right:0;">Amenidades</h2>
+            <h2 class="amenities-title" style="margin-left:0;margin-right:0;">Amenidades</h2>
             <div class="amenities-tags">
-              <!-- Shoe & Coat Rack -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18M3 17l2-8h14l2 8M9 17V9m6 8V9"/><circle cx="12" cy="5" r="2"/></svg>Shoe &amp; Coat Rack</span>
-              <!-- Mirror -->
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Shoe &amp; Coat Rack</span>
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="18" rx="2"/><path d="M4 14h16"/><path d="M9 20v2M15 20v2"/></svg>Mirror</span>
-              <!-- Full Kitchen -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 19.53A2 2 0 005.5 22h13a2 2 0 001.68-3.06C18.35 16.33 16 12 17 8z"/><line x1="12" y1="22" x2="12" y2="13"/></svg>Full Kitchen</span>
-              <!-- Coffee Maker -->
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><circle cx="16" cy="10" r="2"/><line x1="2" y1="14" x2="22" y2="14"/></svg>Full Kitchen</span>
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>Coffee Maker</span>
-              <!-- Blender -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12l2 7H4L6 2z"/><path d="M4 9l2 11a2 2 0 002 2h8a2 2 0 002-2l2-11"/><line x1="9" y1="14" x2="15" y2="14"/></svg>Blender</span>
-              <!-- Refrigerator -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="4" y1="10" x2="20" y2="10"/><line x1="9" y1="6" x2="9" y2="9"/><line x1="9" y1="14" x2="9" y2="18"/></svg>Refrigerator</span>
-              <!-- Stove -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><circle cx="16" cy="10" r="2"/><circle cx="8" cy="17" r="1"/><circle cx="16" cy="17" r="1"/><line x1="2" y1="14" x2="22" y2="14"/></svg>Stove</span>
-              <!-- Microwave -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><rect x="5" y="9" width="10" height="6" rx="1"/><circle cx="19" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="19" cy="14" r="1" fill="currentColor" stroke="none"/></svg>Microwave</span>
-              <!-- Cooking Basics -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Cooking Basics</span>
-              <!-- Dishes & Silverware -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 00-7 7c0 3 1.5 5.5 4 6.7V20h6v-4.3c2.5-1.2 4-3.7 4-6.7a7 7 0 00-7-7z"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="2" x2="12" y2="9"/></svg>Dishes &amp; Silverware</span>
-              <!-- Dining Area -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><rect x="5" y="3" width="14" height="18" rx="1"/></svg>Dining Area</span>
-              <!-- Coffee -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v8a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="5"/><line x1="10" y1="2" x2="10" y2="5"/><line x1="14" y1="2" x2="14" y2="5"/></svg>Coffee</span>
-              <!-- Living Room -->
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 00-7 7c0 3 1.5 5.5 4 6.7V20h6v-4.3c2.5-1.2 4-3.7 4-6.7a7 7 0 00-7-7z"/><line x1="9" y1="20" x2="15" y2="20"/></svg>Dishes &amp; Silverware</span>
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9V6a2 2 0 00-2-2H6a2 2 0 00-2 2v3"/><path d="M2 11a2 2 0 012 2v2h16v-2a2 2 0 014 0v5H2v-5a2 2 0 012-2z"/><line x1="6" y1="20" x2="6" y2="22"/><line x1="18" y1="20" x2="18" y2="22"/></svg>Living Room</span>
-              <!-- TV -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg>TV</span>
-              <!-- Bed Linens -->
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg>Smart TV</span>
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 14h20v6H2z"/><path d="M2 14V8a2 2 0 012-2h7v8"/><path d="M13 6h7a2 2 0 012 2v6"/></svg>Bed Linens</span>
-              <!-- Clothing Storage -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="12" y1="4" x2="12" y2="20"/></svg>Clothing Storage</span>
-              <!-- Blackout Curtains -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="3" x2="21" y2="3"/><path d="M3 3l5 18M21 3l-5 18M3 3v18M21 3v18"/></svg>Blackout Curtains</span>
-              <!-- Hair Dryer -->
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="3" x2="21" y2="3"/><path d="M3 3l5 18M21 3l-5 18"/></svg>Blackout Curtains</span>
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 006 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></svg>Hair Dryer</span>
-              <!-- Shampoo -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="4" width="10" height="16" rx="2"/><path d="M9 4V2h6v2"/><path d="M10 11h4M12 9v4"/></svg>Shampoo</span>
-              <!-- Body Soap -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="14" rx="2"/><path d="M9 6V4a3 3 0 016 0v2"/><line x1="9" y1="12" x2="15" y2="12"/></svg>Body Soap</span>
-              <!-- Shower Gel -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8l2 5H6L8 2z"/><path d="M6 7v13a2 2 0 002 2h8a2 2 0 002-2V7"/><line x1="10" y1="12" x2="14" y2="12"/></svg>Shower Gel</span>
-              <!-- Hot Water -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M6 6l2 2M18 6l-2 2"/><circle cx="12" cy="14" r="6"/><path d="M9 14c0-1.7 1.3-3 3-3s3 1.3 3 3"/></svg>Hot Water</span>
-              <!-- Wireless Internet -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>Wireless Internet</span>
-              <!-- Iron -->
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>WiFi</span>
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18h14a2 2 0 002-2v-1H4v3z"/><path d="M4 15V9a6 6 0 0112 0v6"/><line x1="8" y1="18" x2="8" y2="21"/></svg>Iron</span>
-              <!-- Hangers -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4a2 2 0 012 2c0 1-1 2-2 3L3 16h18L12 9c-1-1-2-2-2-3z"/><line x1="3" y1="16" x2="21" y2="16"/></svg>Hangers</span>
-              <!-- Elevator in Building -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M10 7l-2 2 2 2M14 7l2 2-2 2"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="18" x2="15" y2="18"/></svg>Elevator in Building</span>
-              <!-- Natural Light & Patio View -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="4"/><path d="M12 2v2M12 18v2M4.22 4.22l1.42 1.42M18.36 17.36l1.42 1.42M2 10h2M20 10h2M4.22 15.78l1.42-1.42M18.36 4.22l1.42 1.42"/><path d="M4 20h16"/></svg>Natural Light &amp; Patio View</span>
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M10 7l-2 2 2 2M14 7l2 2-2 2"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="18" x2="15" y2="18"/></svg>Elevator</span>
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="4"/><path d="M12 2v2M12 18v2M4.22 4.22l1.42 1.42M18.36 17.36l1.42 1.42M2 10h2M20 10h2M4.22 15.78l1.42-1.42M18.36 4.22l1.42 1.42"/><path d="M4 20h16"/></svg>Natural Light</span>
             </div>
           </div>
 
-          <!-- Columna derecha: políticas de reserva -->
           <div class="policies-col">
-            <h2 class="amenities-title" style="margin-left:0; margin-right:0;">Políticas de reserva</h2>
+            <h2 class="amenities-title" style="margin-left:0;margin-right:0;">Políticas de reserva</h2>
             <div class="about-block">
               <ul class="values-list">
-                <li>✦ Reducir ruido a partir de 21:00PM.</li>
+                <li>✦ Reducir ruido a partir de 21:00 PM.</li>
                 <li>✦ Está prohibido el consumo de drogas.</li>
                 <li>✦ No se permiten reuniones o fiestas.</li>
-                <li>✦ En caso de incumplimiento, se cobrará una multa de $500USD y la cancelación inmediata de la reserva por lo que deberán desocupar el alojamiento.</li>
+                <li>✦ En caso de incumplimiento, se cobrará una multa de $500 USD y cancelación inmediata de la reserva.</li>
               </ul>
             </div>
           </div>
 
         </div>
-      </div><!-- /amenities-section -->
+      </div>
 
     </section>
 
@@ -606,7 +604,7 @@
         </div>
       </div>
       <br>
-      <!-- Galería de fotos -->
+
       <div class="gallery">
         <div class="gallery-main">
           <img src="public/chap_img1.jpg" alt="Vista principal Chapultepec" />
@@ -619,149 +617,117 @@
         </div>
       </div>
 
-      <!-- BLOQUE 1: Highlights (izq) | Booking card (der) -->
+      <!-- Highlights + Booking -->
       <div class="sub-content-top">
-
-        <!-- Columna izquierda: características del depto -->
         <div class="sub-highlights-col">
           <h2>El espacio</h2>
           <p>Cuenta con una recámara y baño completo. Disfruta del espacio en excelente zona.</p>
           <ul class="space-highlights">
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              1 King size bed
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 14h20v6H2z"/><path d="M2 14V8a2 2 0 012-2h7v8"/><path d="M13 6h7a2 2 0 012 2v6"/></svg>
+              1 recámara, cama king-size
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>
-              High-speed WiFi
+              WiFi de alta velocidad
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg>
               Smart TV
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 19.53A2 2 0 005.5 22h13a2 2 0 001.68-3.06C18.35 16.33 16 12 17 8z"/><line x1="12" y1="22" x2="12" y2="13"/></svg>
-              Forest &amp; Park Views
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Vistas al bosque y parque
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 19.53A2 2 0 005.5 22h13a2 2 0 001.68-3.06C18.35 16.33 16 12 17 8z"/><line x1="12" y1="22" x2="12" y2="13"/></svg>
-              Full equipped kitchen
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><circle cx="16" cy="10" r="2"/><line x1="2" y1="14" x2="22" y2="14"/></svg>
+              Cocina totalmente equipada
             </li>
             <li class="highlight-warning">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              No parking available
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+              Sin estacionamiento
             </li>
           </ul>
-          <a href="https://www.airbnb.mx/rooms/1572503605474537789?check_in=2026-04-10&check_out=2026-04-12&guests=1&adults=1&s=67&unique_share_id=40a3b740-c39e-4498-ad18-ddbe09496a1e"
-             target="_blank" class="btn-primary btn-link">Reserve on Airbnb</a>
+          <a href="https://www.airbnb.mx/rooms/1572503605474537789"
+             target="_blank" class="btn-primary btn-link">Reservar en Airbnb</a>
         </div>
 
-        <!-- Columna derecha: formulario de reserva -->
+        <!-- Booking card -->
         <div class="hero-visual">
           <div class="booking-card">
             <h2>Reserva tu estancia</h2>
             <p class="booking-intro">Elige tus fechas y completa el formulario. Te contactaremos a la brevedad para confirmar.</p>
-
             <div class="booking-form">
               <div class="booking-row">
                 <div class="bf">
                   <label>Llegada</label>
                   <div class="bf-wrap">
-                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="3" y="4" width="18" height="18" rx="2"/>
-                      <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                    </svg>
+                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                     <input type="text" id="llegada-chap" placeholder="dd/mm/aaaa" readonly />
                   </div>
                 </div>
                 <div class="bf">
                   <label>Salida</label>
                   <div class="bf-wrap">
-                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="3" y="4" width="18" height="18" rx="2"/>
-                      <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                    </svg>
+                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                     <input type="text" id="salida-chap" placeholder="dd/mm/aaaa" readonly />
                   </div>
                 </div>
               </div>
-
               <div class="booking-row">
                 <div class="bf">
                   <label>Nombre</label>
                   <div class="bf-wrap">
-                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
-                    </svg>
+                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                     <input type="text" id="nombre-chap" placeholder="Tu nombre completo" />
                   </div>
                 </div>
                 <div class="bf">
                   <label>Teléfono</label>
                   <div class="bf-wrap">
-                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
-                    </svg>
+                    <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
                     <input type="tel" id="telefono-chap" placeholder="55 1234 5678" />
                   </div>
                 </div>
               </div>
-
               <div class="bf">
                 <label>Alojamiento</label>
                 <div class="bf-wrap">
-                  <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-                    <polyline points="9 22 9 12 15 12 15 22"/>
-                  </svg>
+                  <svg class="bf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                   <input type="text" id="alojamiento-chap" value="Chapultepec" readonly />
                 </div>
               </div>
-
               <button type="button" class="btn-solicitar" id="btnReservarChap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                 Solicitar reserva
               </button>
             </div>
-
             <div class="booking-footer">
               <a href="mailto:bae250425@gmail.com" class="bfoot-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 bae250425@gmail.com
               </a>
               <a href="tel:5555555555" class="bfoot-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
                 555-555-5555
               </a>
               <span class="bfoot-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 Ciudad de México
               </span>
             </div>
           </div>
         </div>
+      </div>
 
-      </div><!-- /sub-content-top -->
-
-      <!-- BLOQUE 2: Descripción (izq) | Mapa (der) -->
+      <!-- Descripción + Mapa -->
       <div class="sub-content-bottom">
-
         <div class="sub-info">
-          <h2>SALAMANCA | Confort • Estilo • Ubicación</h2>
+          <h2>CHAPULTEPEC | Naturaleza • Cultura • Estilo</h2>
           <p>Nuestro alojamiento en Chapultepec te ubica a pasos del bosque más icónico de la ciudad. Un refugio urbano donde la naturaleza y la cultura se encuentran.</p>
           <p>Disfruta de vistas verdes, acceso inmediato a museos de clase mundial y la vibra única de esta zona privilegiada.</p>
-          <p>Ideal para dos personas, con una recámara, baño completo y cocina totalmente equipada. El equilibrio perfecto entre ciudad y naturaleza.</p>
+          <p>Ideal para dos personas, con una recámara, baño completo y cocina totalmente equipada.</p>
         </div>
-
         <div class="sub-map">
           <div class="map-embed-wrap">
             <div class="map-location-label">
@@ -770,97 +736,59 @@
             </div>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.5!2d-99.1850!3d19.4160!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fe4b6f000001%3A0x0!2sChapultepec%2C%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1681000000001!5m2!1ses!2smx"
-              class="map-iframe"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Ubicación Chapultepec">
+              class="map-iframe" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="Ubicación Chapultepec">
             </iframe>
           </div>
         </div>
+      </div>
 
-      </div><!-- /sub-content-bottom -->
-
-      <!-- BLOQUE 3: Amenidades (izq) | Políticas de reserva (der) -->
+      <!-- Amenidades + Políticas -->
       <div class="amenities-section">
         <div class="amenities-inner">
-
-          <!-- Columna izquierda: tags de amenidades -->
           <div>
-            <h2 class="amenities-title" style="margin-left:0; margin-right:0;">Amenidades</h2>
+            <h2 class="amenities-title" style="margin-left:0;margin-right:0;">Amenidades</h2>
             <div class="amenities-tags">
-              <!-- Shoe & Coat Rack -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18M3 17l2-8h14l2 8M9 17V9m6 8V9"/><circle cx="12" cy="5" r="2"/></svg>Shoe &amp; Coat Rack</span>
-              <!-- Mirror -->
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Shoe &amp; Coat Rack</span>
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="18" rx="2"/><path d="M4 14h16"/><path d="M9 20v2M15 20v2"/></svg>Mirror</span>
-              <!-- Full Kitchen -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 19.53A2 2 0 005.5 22h13a2 2 0 001.68-3.06C18.35 16.33 16 12 17 8z"/><line x1="12" y1="22" x2="12" y2="13"/></svg>Full Kitchen</span>
-              <!-- Coffee Maker -->
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><circle cx="16" cy="10" r="2"/><line x1="2" y1="14" x2="22" y2="14"/></svg>Full Kitchen</span>
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>Coffee Maker</span>
-              <!-- Blender -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12l2 7H4L6 2z"/><path d="M4 9l2 11a2 2 0 002 2h8a2 2 0 002-2l2-11"/><line x1="9" y1="14" x2="15" y2="14"/></svg>Blender</span>
-              <!-- Refrigerator -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="4" y1="10" x2="20" y2="10"/><line x1="9" y1="6" x2="9" y2="9"/><line x1="9" y1="14" x2="9" y2="18"/></svg>Refrigerator</span>
-              <!-- Stove -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="10" r="2"/><circle cx="16" cy="10" r="2"/><circle cx="8" cy="17" r="1"/><circle cx="16" cy="17" r="1"/><line x1="2" y1="14" x2="22" y2="14"/></svg>Stove</span>
-              <!-- Microwave -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><rect x="5" y="9" width="10" height="6" rx="1"/><circle cx="19" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="19" cy="14" r="1" fill="currentColor" stroke="none"/></svg>Microwave</span>
-              <!-- Cooking Basics -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Cooking Basics</span>
-              <!-- Dishes & Silverware -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 00-7 7c0 3 1.5 5.5 4 6.7V20h6v-4.3c2.5-1.2 4-3.7 4-6.7a7 7 0 00-7-7z"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="2" x2="12" y2="9"/></svg>Dishes &amp; Silverware</span>
-              <!-- Dining Area -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><rect x="5" y="3" width="14" height="18" rx="1"/></svg>Dining Area</span>
-              <!-- Coffee -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v8a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="5"/><line x1="10" y1="2" x2="10" y2="5"/><line x1="14" y1="2" x2="14" y2="5"/></svg>Coffee</span>
-              <!-- Living Room -->
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 00-7 7c0 3 1.5 5.5 4 6.7V20h6v-4.3c2.5-1.2 4-3.7 4-6.7a7 7 0 00-7-7z"/><line x1="9" y1="20" x2="15" y2="20"/></svg>Dishes &amp; Silverware</span>
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9V6a2 2 0 00-2-2H6a2 2 0 00-2 2v3"/><path d="M2 11a2 2 0 012 2v2h16v-2a2 2 0 014 0v5H2v-5a2 2 0 012-2z"/><line x1="6" y1="20" x2="6" y2="22"/><line x1="18" y1="20" x2="18" y2="22"/></svg>Living Room</span>
-              <!-- TV -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg>TV</span>
-              <!-- Bed Linens -->
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg>Smart TV</span>
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 14h20v6H2z"/><path d="M2 14V8a2 2 0 012-2h7v8"/><path d="M13 6h7a2 2 0 012 2v6"/></svg>Bed Linens</span>
-              <!-- Clothing Storage -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="12" y1="4" x2="12" y2="20"/></svg>Clothing Storage</span>
-              <!-- Blackout Curtains -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="3" x2="21" y2="3"/><path d="M3 3l5 18M21 3l-5 18M3 3v18M21 3v18"/></svg>Blackout Curtains</span>
-              <!-- Hair Dryer -->
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="3" x2="21" y2="3"/><path d="M3 3l5 18M21 3l-5 18"/></svg>Blackout Curtains</span>
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 006 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></svg>Hair Dryer</span>
-              <!-- Shampoo -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="4" width="10" height="16" rx="2"/><path d="M9 4V2h6v2"/><path d="M10 11h4M12 9v4"/></svg>Shampoo</span>
-              <!-- Body Soap -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="14" rx="2"/><path d="M9 6V4a3 3 0 016 0v2"/><line x1="9" y1="12" x2="15" y2="12"/></svg>Body Soap</span>
-              <!-- Shower Gel -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8l2 5H6L8 2z"/><path d="M6 7v13a2 2 0 002 2h8a2 2 0 002-2V7"/><line x1="10" y1="12" x2="14" y2="12"/></svg>Shower Gel</span>
-              <!-- Hot Water -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M6 6l2 2M18 6l-2 2"/><circle cx="12" cy="14" r="6"/><path d="M9 14c0-1.7 1.3-3 3-3s3 1.3 3 3"/></svg>Hot Water</span>
-              <!-- Wireless Internet -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>Wireless Internet</span>
-              <!-- Iron -->
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>WiFi</span>
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18h14a2 2 0 002-2v-1H4v3z"/><path d="M4 15V9a6 6 0 0112 0v6"/><line x1="8" y1="18" x2="8" y2="21"/></svg>Iron</span>
-              <!-- Hangers -->
               <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4a2 2 0 012 2c0 1-1 2-2 3L3 16h18L12 9c-1-1-2-2-2-3z"/><line x1="3" y1="16" x2="21" y2="16"/></svg>Hangers</span>
-              <!-- Elevator in Building -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M10 7l-2 2 2 2M14 7l2 2-2 2"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="18" x2="15" y2="18"/></svg>Elevator in Building</span>
-              <!-- Natural Light & Patio View -->
-              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="4"/><path d="M12 2v2M12 18v2M4.22 4.22l1.42 1.42M18.36 17.36l1.42 1.42M2 10h2M20 10h2M4.22 15.78l1.42-1.42M18.36 4.22l1.42 1.42"/><path d="M4 20h16"/></svg>Natural Light &amp; Patio View</span>
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M10 7l-2 2 2 2M14 7l2 2-2 2"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="18" x2="15" y2="18"/></svg>Elevator</span>
+              <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="4"/><path d="M12 2v2M12 18v2M4.22 4.22l1.42 1.42M18.36 17.36l1.42 1.42M2 10h2M20 10h2M4.22 15.78l1.42-1.42M18.36 4.22l1.42 1.42"/><path d="M4 20h16"/></svg>Natural Light</span>
             </div>
           </div>
 
-          <!-- Columna derecha: políticas de reserva -->
           <div class="policies-col">
-            <h2 class="amenities-title" style="margin-left:0; margin-right:0;">Políticas de reserva</h2>
+            <h2 class="amenities-title" style="margin-left:0;margin-right:0;">Políticas de reserva</h2>
             <div class="about-block">
               <ul class="values-list">
-                <li>✦ Reducir ruido a partir de 21:00PM.</li>
+                <li>✦ Reducir ruido a partir de 21:00 PM.</li>
                 <li>✦ Está prohibido el consumo de drogas.</li>
                 <li>✦ No se permiten reuniones o fiestas.</li>
-                <li>✦ En caso de incumplimiento, se cobrará una multa de $500USD y la cancelación inmediata de la reserva por lo que deberán desocupar el alojamiento.</li>
+                <li>✦ En caso de incumplimiento, se cobrará una multa de $500 USD y cancelación inmediata de la reserva.</li>
               </ul>
             </div>
           </div>
 
         </div>
-      </div><!-- /amenities-section -->
+      </div>
 
     </section>
 
@@ -870,6 +798,8 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand" data-page="inicio">
+        <img src="public/BAE_Circular png.png" alt="BAE Logo" class="footer-logo"
+             onerror="this.style.display='none'; document.getElementById('footerFallback').style.display='flex';" />
         <div class="brand-fallback" id="footerFallback" style="display:none;">
           <span class="brand-icon">◆</span>
           <span class="brand-name">BAE</span>
@@ -891,7 +821,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/l10n/es.js"></script>
   <script src="index.js"></script>
   <script>
-    // Calendarios y formulario de Chapultepec
     document.addEventListener('DOMContentLoaded', () => {
       const fpChapLlegada = flatpickr('#llegada-chap', {
         locale: 'es', dateFormat: 'd/m/Y', minDate: 'today', disableMobile: false,
@@ -914,10 +843,10 @@
       const btnChap = document.getElementById('btnReservarChap');
       if (btnChap) {
         btnChap.addEventListener('click', () => {
-          const llegada   = document.getElementById('llegada-chap').value.trim();
-          const salida    = document.getElementById('salida-chap').value.trim();
-          const nombre    = document.getElementById('nombre-chap').value.trim();
-          const telefono  = document.getElementById('telefono-chap').value.trim();
+          const llegada  = document.getElementById('llegada-chap').value.trim();
+          const salida   = document.getElementById('salida-chap').value.trim();
+          const nombre   = document.getElementById('nombre-chap').value.trim();
+          const telefono = document.getElementById('telefono-chap').value.trim();
           if (!llegada || !salida || !nombre || !telefono) {
             showToast('Por favor completa todos los campos requeridos.', true);
             return;
