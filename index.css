@@ -255,7 +255,7 @@ main { margin-top: var(--nav-h); flex: 1; overflow-x: hidden; }
 .hero-subtitle {
   font-size: 1.05rem;
   color: var(--text-light);
-  line-height: 1.7;
+  line-height: 1;
   margin-bottom: 36px;
   max-width: 480px;
 }
