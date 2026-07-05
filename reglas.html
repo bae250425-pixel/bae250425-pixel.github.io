@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reglas de la Casa — BAE</title>
+  <link rel="stylesheet" href="index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── PAGE LAYOUT ── */
+    .rules-page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 5% 80px;
+    }
+
+    /* ── CATEGORY BLOCK ── */
+    .rules-category {
+      margin-bottom: 48px;
+    }
+
+    .rules-category-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--title);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(0,117,75,.15);
+    }
+
+    .rules-category-title svg {
+      width: 20px;
+      height: 20px;
+      color: var(--subtitle);
+      flex-shrink: 0;
+    }
+
+    /* ── RULE ITEMS ── */
+    .rules-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .rules-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: .95rem;
+      color: var(--text);
+      line-height: 1.65;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      transition: var(--transition);
+    }
+
+    .rules-list li:hover {
+      border-color: rgba(0,117,75,.25);
+      box-shadow: 0 2px 12px rgba(0,117,75,.07);
+    }
+
+    .rule-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--subtitle);
+      flex-shrink: 0;
+      margin-top: 7px;
+      transition: background var(--transition);
+    }
+
+    .rules-list li:hover .rule-dot {
+      background: var(--title);
+    }
+
+    /* Items con advertencia (penalización / prohibición estricta) */
+    .rules-list li.rule-warn {
+      border-color: rgba(154, 98, 0, .25);
+      background: rgba(255, 248, 235, .6);
+    }
+
+    .rules-list li.rule-warn .rule-dot {
+      background: #c07a00;
+    }
+
+    .rules-list li.rule-warn:hover {
+      border-color: rgba(154, 98, 0, .45);
+      box-shadow: 0 2px 12px rgba(154,98,0,.1);
+    }
+
+    /* ── INTRO CARD ── */
+    .rules-intro {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      box-shadow: var(--shadow);
+    }
+
+    .rules-intro svg {
+      width: 28px;
+      height: 28px;
+      color: var(--title);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .rules-intro p {
+      font-size: .96rem;
+      color: var(--text-light);
+      line-height: 1.75;
+    }
+
+    .rules-intro strong {
+      color: var(--title);
+      font-weight: 700;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .rules-page { padding: 40px 5% 60px; }
+      .rules-intro { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-brand" onclick="window.location.href='index.html'">
+      <img src="public/BAE_Circular png.png" alt="BAE Logo" class="brand-logo" id="brandLogo"
+           onerror="this.style.display='none'; document.getElementById('brandFallback').style.display='flex';" />
+      <div class="brand-fallback" id="brandFallback" style="display:none;">
+        <span class="brand-icon">◆</span>
+        <span class="brand-name">BAE</span>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Inicio</a>
+      <a href="index.html#nosotros" class="nav-link">Nosotros</a>
+      <a href="index.html#alojamiento" class="nav-link">Alojamiento</a>
+      <a href="reglas.html" class="nav-link active">Reglas</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="mobile-link">Inicio</a>
+    <a href="index.html" class="mobile-link">Nosotros</a>
+    <a href="index.html" class="mobile-link">Alojamiento</a>
+    <a href="reglas.html" class="mobile-link">Reglas de la Casa</a>
+  </div>
+
+  <main>
+
+    <!-- INNER HERO -->
+    <div class="inner-hero">
+      <div class="inner-hero-text">
+        <p class="hero-eyebrow">BAE — Balance Apartment Experience</p>
+        <h1>Reglas de <em>la Casa</em></h1>
+        <p>Para garantizar una estancia agradable para todos, te pedimos leer y respetar las siguientes reglas.</p>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="rules-page">
+
+      <!-- INTRO -->
+      <div class="rules-intro">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <p>Estas reglas aplican a <strong>todas las estancias</strong> en los alojamientos BAE. Al realizar tu reserva, aceptas cumplir con cada uno de estos puntos. Ante cualquier duda, no dudes en contactar al anfitrión.</p>
+      </div>
+
+      <!-- 1. HUÉSPEDES Y ACCESO -->
+      <div class="rules-category">
+        <h2 class="rules-category-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          Huéspedes y acceso
+        </h2>
+        <ul class="rules-list">
+          <li><span class="rule-dot"></span>La capacidad del alojamiento es de 2 huéspedes, máximo 4 (sofá cama).</li>
+          <li><span class="rule-dot"></span>La persona que realiza la reserva deberá ser quien se hospede o en su caso se deberá de mostrar identificaciones del que lo reserva y el que será el huésped.</li>
+          <li><span class="rule-dot"></span>Los huéspedes deben enviar una identificación oficial vigente (INE o pasaporte) antes de su llegada.</li>
+          <li><span class="rule-dot"></span>No se permite el acceso a visitantes no registrados.</li>
+          <li><span class="rule-dot"></span>El alojamiento no cuenta con estacionamiento.</li>
+        </ul>
+      </div>
+
+      <!-- 2. CHECK-IN / CHECK-OUT -->
+      <div class="rules-category">
+        <h2 class="rules-category-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Check-in y Check-out
+        </h2>
+        <ul class="rules-list">
+          <li><span class="rule-dot"></span>El check-in es a partir de las 15:00 horas y el check-out a las 11:00 horas.</li>
+          <li class="rule-warn"><span class="rule-dot"></span>La salida tardía tendrá un cargo de $2,000 MXN por cada hora adicional.</li>
+        </ul>
+      </div>
+
+      <!-- 3. CUIDADO DEL ALOJAMIENTO -->
+      <div class="rules-category">
+        <h2 class="rules-category-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Cuidado del alojamiento
+        </h2>
+        <ul class="rules-list">
+          <li><span class="rule-dot"></span>Los huéspedes deben hacer un uso adecuado de las instalaciones y cuidar el apartamento, incluyendo sábanas, toallas y colchas.</li>
+          <li><span class="rule-dot"></span>Los electrodomésticos deben utilizarse con cuidado y responsabilidad.</li>
+          <li class="rule-warn"><span class="rule-dot"></span>Está prohibido sustraer cualquier artículo de la propiedad.</li>
+          <li><span class="rule-dot"></span>No se permite tender ropa o toallas en los balcones.</li>
+          <li><span class="rule-dot"></span>Por higiene, al consumir alimentos o bebidas, los huéspedes deben evitar limpiarse en sillas, sillones o camas.</li>
+          <li><span class="rule-dot"></span>Después de utilizar la cocina, los huéspedes deben limpiar utensilios y superficies.</li>
+          <li><span class="rule-dot"></span>No se debe dejar basura acumulada dentro del departamento.</li>
+          <li><span class="rule-dot"></span>Para estancias mayores a dos días, la basura debe depositarse en el recolector ubicado en el piso S2.</li>
+          <li><span class="rule-dot"></span>Antes de salir y antes de dormir, los huéspedes deben verificar que las perillas de la estufa estén completamente cerradas.</li>
+        </ul>
+      </div>
+
+      <!-- 4. USO RESPONSABLE -->
+      <div class="rules-category">
+        <h2 class="rules-category-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 6v6l4 2"/></svg>
+          Uso responsable
+        </h2>
+        <ul class="rules-list">
+          <li><span class="rule-dot"></span>Los huéspedes deben hacer un uso responsable del agua, la luz y el gas, y apagar luces, ventiladores y aparatos electrónicos al salir.</li>
+          <li><span class="rule-dot"></span>Se debe cerrar correctamente la puerta y todas las ventanas al salir.</li>
+        </ul>
+      </div>
+
+      <!-- 5. CONVIVENCIA Y CONDUCTA -->
+      <div class="rules-category">
+        <h2 class="rules-category-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          Convivencia y conducta
+        </h2>
+        <ul class="rules-list">
+          <li><span class="rule-dot"></span>El horario de silencio es de 21:00 a 8:00 horas.</li>
+          <li><span class="rule-dot"></span>Se permite el consumo moderado de bebidas alcohólicas; no se permite el exceso, el ruido, música alta ni conductas inapropiadas.</li>
+          <li class="rule-warn"><span class="rule-dot"></span>No están permitidas fiestas ni reuniones.</li>
+          <li class="rule-warn"><span class="rule-dot"></span>No se permite el uso del alojamiento para sesiones fotográficas, grabaciones o actividades comerciales sin autorización.</li>
+          <li class="rule-warn"><span class="rule-dot"></span>No se permiten mascotas.</li>
+          <li class="rule-warn"><span class="rule-dot"></span>Está estrictamente prohibido fumar dentro del alojamiento; se permite únicamente en la terraza del Ruf Garden. El incumplimiento implica una penalización de $5,000 MXN.</li>
+          <li class="rule-warn"><span class="rule-dot"></span>No se permite introducir sustancias ilegales o peligrosas ni armas.</li>
+        </ul>
+      </div>
+
+      <!-- 6. DAÑOS Y RESPONSABILIDADES -->
+      <div class="rules-category">
+        <h2 class="rules-category-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Daños y responsabilidades
+        </h2>
+        <ul class="rules-list">
+          <li class="rule-warn"><span class="rule-dot"></span>Cualquier daño a las instalaciones, mobiliario o equipo deberá ser cubierto por el huésped.</li>
+          <li class="rule-warn"><span class="rule-dot"></span>Si las toallas se entregan manchadas o dañadas, se aplicará un cargo de $300 MXN por pieza.</li>
+          <li><span class="rule-dot"></span>Cualquier desperfecto detectado a la llegada debe ser reportado de inmediato.</li>
+          <li><span class="rule-dot"></span>Si ocurre algún incidente durante la estancia, los huéspedes deben notificar al anfitrión de inmediato.</li>
+        </ul>
+      </div>
+
+      <!-- 7. LIMPIEZA Y SERVICIOS -->
+      <div class="rules-category">
+        <h2 class="rules-category-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><path d="M5 6V4h14v2"/></svg>
+          Limpieza y servicios adicionales
+        </h2>
+        <ul class="rules-list">
+          <li><span class="rule-dot"></span>En estancias prolongadas, se incluye un servicio de limpieza semanal.</li>
+          <li><span class="rule-dot"></span>Las limpiezas adicionales tienen un costo de $500 MXN cada una e incluyen cambio de toallas y sábanas.</li>
+          <li><span class="rule-dot"></span>El servicio de lavandería está disponible por $190 MXN por carga.</li>
+          <li><span class="rule-dot"></span>Si los huéspedes requieren algún artículo adicional (por ejemplo, una olla más grande), pueden solicitarlo directamente al anfitrión; se les informará su disponibilidad.</li>
+        </ul>
+      </div>
+
+      <!-- 8. EMERGENCIAS Y SITUACIONES ESPECIALES -->
+      <div class="rules-category">
+        <h2 class="rules-category-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+          Emergencias y situaciones especiales
+        </h2>
+        <ul class="rules-list">
+          <li><span class="rule-dot"></span>En caso de emergencia, deben contactar al anfitrión y comunicarse al 911.</li>
+          <li><span class="rule-dot"></span>El servicio de internet y otros servicios pueden verse afectados por causas externas; no se garantiza disponibilidad ininterrumpida.</li>
+          <li><span class="rule-dot"></span>En caso de fuerza mayor (fallas generales, mantenimiento u otras situaciones ajenas al anfitrión), la estancia podrá ser reprogramada o sujeta a las políticas correspondientes.</li>
+        </ul>
+      </div>
+
+    </div><!-- /rules-page -->
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand" onclick="window.location.href='index.html'">
+        <img src="public/BAE_Circular png.png" alt="BAE" class="footer-logo"
+             onerror="this.style.display='none'; document.getElementById('footerFallback').style.display='flex';" />
+        <div class="brand-fallback" id="footerFallback" style="display:none;">
+          <span class="brand-icon">◆</span>
+          <span class="brand-name">BAE</span>
+        </div>
+      </div>
+      <p class="footer-copy">© 2025 BAE — Balance Apartment Experience. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <a href="index.html">Inicio</a>
+        <a href="index.html">Nosotros</a>
+        <a href="index.html">Alojamiento</a>
+        <a href="reglas.html">Reglas</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger móvil
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    document.addEventListener('click', e => {
+      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+      }
+    });
+  </script>
+
+</body>
+</html>
